@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { CardsModule } from './cards/cards.module';
+import { CardDataModule } from './card-data/card-data.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { CardsModule } from './cards/cards.module';
     FormsModule,
     HttpModule,
     AppRoutingModule,
-    CardsModule
+    CardsModule,
+    CardDataModule
   ],
   providers: [],
   bootstrap: [AppComponent]

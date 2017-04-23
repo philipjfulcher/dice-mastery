@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { CardDataService } from '../../card-data/card-data.service';
 import { Card } from '../../card-data/models';
 
@@ -10,10 +10,14 @@ import { Card } from '../../card-data/models';
 export class CardsComponent implements OnInit {
   cards: Card[];
 
-  constructor(private cardDataService: CardDataService) { }
+  constructor(private zone:NgZone, private cardDataService: CardDataService) { }
 
   ngOnInit() {
-    this.cards = this.cardDataService.getCards();
+    this.cardDataService.cards$.subscribe((cards) => {
+      //this.zone.run(() => { 
+        this.cards = cards;
+      //});
+    });
   }
 
 }
